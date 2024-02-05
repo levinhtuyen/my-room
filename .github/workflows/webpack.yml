@@ -27,5 +27,4 @@ jobs:
         yarn install
         yarn build
       path: ./bundler/webpack.prod.js
-      lish_dir: ./bundler/webpack.prod.js
         
