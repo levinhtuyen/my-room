@@ -28,7 +28,4 @@ jobs:
         npm build
 job:
   artifacts:
-    paths:
-      - ./dist
-
-        
+    paths: ./dist
