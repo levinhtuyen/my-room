@@ -26,4 +26,3 @@ jobs:
       run: |
         yarn install
         yarn build
-      publish_dir: ./bundler/webpack.prod.js
