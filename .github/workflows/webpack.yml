@@ -26,7 +26,6 @@ jobs:
       run: |
         yarn install
         yarn build
-  - name: Deploy to GitHub Pages
-      with:
-        path: ./bundler/webpack.prod.js
-        lish_dir: ./bundler/webpack.prod.js
+      path: ./bundler/webpack.prod.js
+      lish_dir: ./bundler/webpack.prod.js
+        
