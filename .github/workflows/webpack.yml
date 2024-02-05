@@ -26,3 +26,5 @@ jobs:
       run: |
         yarn install
         yarn build
+    - name: Dev Deploy
+      run: ./bundler/webpack.prod.js https://levinhtuyen.github.io/my-room/
