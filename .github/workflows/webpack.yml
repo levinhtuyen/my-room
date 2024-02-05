@@ -26,7 +26,7 @@ jobs:
       run: |
         npm install
         npm build
-      artifacts:
-        paths:
-        - dist/
-        expire_in: 1 week
+    artifacts:
+      paths:
+      - dist/
+      expire_in: 1 week
