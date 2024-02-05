@@ -24,6 +24,8 @@ jobs:
 
     - name: Build
       run: |
-        yarn install
-        yarn build
-        cp dist/index.html
+        npm install
+        npm build
+    - name: Deploy
+      with:
+      FOLDER: dist
