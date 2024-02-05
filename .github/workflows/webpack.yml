@@ -26,5 +26,3 @@ jobs:
       run: |
         yarn install
         yarn build
-    - name: Dev Deploy
-      run: ./dist https://levinhtuyen.github.io/my-room/
