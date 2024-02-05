@@ -24,8 +24,5 @@ jobs:
 
     - name: Build
       run: |
-        npm install
-        npm build
-    - name: Deploy
-      with:
-      FOLDER: dist
+        yarn install
+        yarn build
