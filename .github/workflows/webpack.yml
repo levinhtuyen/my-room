@@ -26,6 +26,9 @@ jobs:
       run: |
         npm install
         npm build
-      source: ./
-      destination: ./dist
+job:
+  artifacts:
+    paths:
+      - ./dist
+
         
