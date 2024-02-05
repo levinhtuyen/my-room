@@ -6,6 +6,9 @@ module.exports = merge(
     commonConfiguration,
     {
         mode: 'production',
+        devServer: {
+            static: "./dist",
+        },
         plugins:
         [
             new CleanWebpackPlugin()
