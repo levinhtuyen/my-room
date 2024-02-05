@@ -27,3 +27,6 @@ jobs:
         yarn install
         yarn build
         yarn prod
+      with:
+          name: production
+          path: ./bundler/webpack.prod.js
