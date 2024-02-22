@@ -28,5 +28,4 @@ jobs:
         yarn build
     - name: Deploy
       with:
-        folder: dist
-        clean: true
+        path: ./dist
