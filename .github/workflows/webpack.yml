@@ -25,8 +25,4 @@ jobs:
       run: |
         yarn install
         yarn build
-    - name: Deploy
-      with:
-        browser: chrome
-        build: yarn build
-        start: yarn serve-dist
+        yarn serve-dist
