@@ -14,7 +14,7 @@ module.exports = merge(
         mode: 'development',
         devServer:
         {
-            host: '0.0.0.0',
+            host: 'https://levinhtuyen.github.io/my-room',
             port: portFinderSync.getPort(8080),
             contentBase: './dist',
             watchContentBase: true,
