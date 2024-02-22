@@ -27,6 +27,6 @@ jobs:
         yarn install
         yarn build
     - name: Deploy
-        with:
-          folder: dist
-          clean: true
+      with:
+        folder: dist
+        clean: true
