@@ -1,46 +1,19 @@
-'use strict';
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const merge = require('webpack-merge');
+const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const settings = require('./getSettings')();
-const runDirectory = path.resolve(__dirname, '../../../');
-const partialConfig = require('./webpack.partial.config.js')(runDirectory, settings);
-
-
-module.exports = (env, argv) => {
-  const autoFix = typeof argv.fix !== 'undefined';
-
-  require('./setNodeActiveEnvVar')(settings, false);
-
-  const resultingWebpackConfig = merge({
-    context: runDirectory,
-    entry: settings.entry,
-    devtool: 'source-map',
-    resolve: partialConfig.resolve,
-    output: partialConfig.output('/' + settings.directory.publicPath),
-    performance: partialConfig.performance,
-    module: {
-      rules: [
-        partialConfig.rules.vue,
-        partialConfig.rules.vueStyleLoader,
-        partialConfig.rules.miniCssExtract,
-        partialConfig.rules.ts(autoFix),
-      ],
-    },
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: '[name].css?bust=[contenthash]',
-        chunkFilename: '[id].css',
-      }),
-      new StyleLintPlugin(partialConfig.plugins.stylelint(autoFix, 'build')),
-      new VueLoaderPlugin(),
-      new webpack.DefinePlugin(settings.definePlugin || {}),
-    ],
-  }, settings.webpackConfig || {});
-
-  return resultingWebpackConfig;
-};
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      inject: true,
+      template: path.resolve(__dirname, 'src', 'index.html'),
+    }),
+  ]
+}
