@@ -2,10 +2,10 @@
   "repository": "#",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "webpack --config ./bundler/webpack.prod.js",
+    "build": "webpack --config ./bundler/webpack.config.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "serve": "webpack serve --config ./bundler/webpack.dev.js",
-    "prod": "webpack serve --config ./bundler/webpack.prod.js",
+    "config": "webpack serve --config ./bundler/webpack.prod.js",
     "serve-dist": "http-server --port 4200 dist/"
   },
   "dependencies": {
