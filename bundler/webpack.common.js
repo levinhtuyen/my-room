@@ -1,98 +1,46 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const path = require('path')
+'use strict';
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const merge = require('webpack-merge');
 
-module.exports = {
-    entry: path.resolve(__dirname, '@/src/script.js'),
-    output:
-    {
-        filename: 'bundle.[contenthash].js',
-        path: path.resolve(__dirname, '@/dist')
-    },
+const settings = require('./getSettings')();
+const runDirectory = path.resolve(__dirname, '../../../');
+const partialConfig = require('./webpack.partial.config.js')(runDirectory, settings);
+
+
+module.exports = (env, argv) => {
+  const autoFix = typeof argv.fix !== 'undefined';
+
+  require('./setNodeActiveEnvVar')(settings, false);
+
+  const resultingWebpackConfig = merge({
+    context: runDirectory,
+    entry: settings.entry,
     devtool: 'source-map',
-    plugins:
-    [
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: path.resolve(__dirname, '@/static') }
-            ]
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '@/src/index.html'),
-            minify: true
-        }),
-        new MiniCSSExtractPlugin()
+    resolve: partialConfig.resolve,
+    output: partialConfig.output('/' + settings.directory.publicPath),
+    performance: partialConfig.performance,
+    module: {
+      rules: [
+        partialConfig.rules.vue,
+        partialConfig.rules.vueStyleLoader,
+        partialConfig.rules.miniCssExtract,
+        partialConfig.rules.ts(autoFix),
+      ],
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[name].css?bust=[contenthash]',
+        chunkFilename: '[id].css',
+      }),
+      new StyleLintPlugin(partialConfig.plugins.stylelint(autoFix, 'build')),
+      new VueLoaderPlugin(),
+      new webpack.DefinePlugin(settings.definePlugin || {}),
     ],
-    module:
-    {
-        rules:
-        [
-            // HTML
-            {
-                test: /\.(html)$/,
-                use: ['html-loader']
-            },
+  }, settings.webpackConfig || {});
 
-            // JS
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use:
-                [
-                    'babel-loader'
-                ]
-            },
-
-            // CSS
-            {
-                test: /\.css$/,
-                use:
-                [
-                    MiniCSSExtractPlugin.loader,
-                    'css-loader'
-                ]
-            },
-
-            // Images
-            {
-                test: /\.(jpg|png|gif|svg)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/images/'
-                        }
-                    }
-                ]
-            },
-
-            // Fonts
-            {
-                test: /\.(ttf|eot|woff|woff2)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/fonts/'
-                        }
-                    }
-                ]
-            },
-
-            // Shaders
-            {
-                test: /\.(glsl|vs|fs|vert|frag)$/,
-                exclude: /node_modules/,
-                use: [
-                    'raw-loader',
-                    'glslify-loader'
-                ]
-            }
-        ]
-    }
-}
+  return resultingWebpackConfig;
+};
