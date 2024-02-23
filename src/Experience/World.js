@@ -5,8 +5,7 @@ import GoogleLeds from './GoogleLeds.js'
 import LoupedeckButtons from './LoupedeckButtons.js'
 import CoffeeSteam from './CoffeeSteam.js'
 import TopChair from './TopChair.js'
-// import SniperFunc from './Sniper.js'
-import PunkFunc from './Sniper2.js'
+import PunkFunc from './Punk.js'
 import ElgatoLight from './ElgatoLight.js'
 import BouncingLogo from './BouncingLogo.js'
 import Screen from './Screen.js'
@@ -81,7 +80,6 @@ export default class World
     setPunk () 
     {
         this.punkFunc = new PunkFunc()
-        console.log('this.punkFunc :>> ', this.punkFunc);
     }
     setGirl () 
     {

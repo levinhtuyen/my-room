@@ -19,7 +19,6 @@ export default class PunkFunc
     setModel()
     {
         this.model = {}
-        console.log('this.resources.items.punk :>> ', this.resources.items.punk);
         this.model.group = this.resources.items.punk.scene.children[0]
         this.scene.add(this.model.group)
         
@@ -27,7 +26,7 @@ export default class PunkFunc
         {
             if(_child instanceof THREE.Mesh)
             {
-                _child.material = this.world.baked.model.material
+                // _child.material = this.world.baked.model.material
             }
         })
     }

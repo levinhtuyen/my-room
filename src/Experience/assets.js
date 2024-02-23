@@ -26,7 +26,6 @@ export default [
             { name: 'bakedNeutralTexture', source: '/assets/bakedNeutral.jpg', type: 'texture' },
             { name: 'lightMapTexture', source: '/assets/lightMap.jpg', type: 'texture' },
             { name: 'roomModel', source: '/assets/roomModel.glb' },
-            // { name: 'sniper', source: '/assets/sniper.glb', type: 'model'},
             { name: 'punk', source: '/assets/punk.glb', type: 'model'},
             { name: 'card', source: '/assets/offroad_car.glb', type: 'model'},
             { name: 'tree', source: '/assets/tree.glb', type: 'model'},
