@@ -5,7 +5,7 @@
     "build": "webpack --config ./bundler/webpack.prod.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "serve": "webpack serve --config ./bundler/webpack.dev.js",
-    "prod": "webpack serve --config ./bundler/webpack.common.js",
+    "prod": "webpack serve --config ./bundler/webpack.common.js --mode production",
     "serve-dist": "http-server --port 4200 dist/"
   },
   "dependencies": {
