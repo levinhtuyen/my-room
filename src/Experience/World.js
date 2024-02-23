@@ -13,6 +13,7 @@ import TopCard from './Card.js'
 import TopTree from './Tree.js'
 import TopPc from './pc.js'
 import TopGirl from './girl.js'
+import GundamZero1 from './GundamZero1.js'
 
 export default class World
 {
@@ -33,6 +34,7 @@ export default class World
                 this.setTopChair()
                 this.setPc()
                 this.setTree()
+                this.setGundamZero1()
                 this.setGirl()
                 this.setPunk()
                 this.setCard()
@@ -62,7 +64,9 @@ export default class World
     {
         this.coffeeSteam = new CoffeeSteam()
     }
-
+    setGundamZero1() {
+        this.gundamZero1 = new GundamZero1()
+    }
     setTopChair()
     {
         this.topChair = new TopChair()
@@ -133,12 +137,20 @@ export default class World
         if(this.topGirl) {
             this.topGirl.update()
         }
-        if(this.topPc)
+        if(this.topPc){
             this.topPc.update()
-        if(this.punkFunc)
+        }
+            
+        if(this.punkFunc){
             this.punkFunc.update()
-        if(this.bouncingLogo)
+        }
+            
+        if(this.bouncingLogo) {
             this.bouncingLogo.update()
+        }
+        if(this.gundamZero1) {
+            this.gundamZero1.update()
+        }
     }
 
     destroy()

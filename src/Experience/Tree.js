@@ -34,7 +34,7 @@ export default class TopTree
 
     update()
     {
-        this.model.group.rotation.z = Math.sin(this.time.elapsed * 0.001) * 1.1
+        this.model.group.rotation.z = Math.abs(this.time.elapsed * 0.001) * 1.1
         this.model.group.position.z = 5.1
         this.model.group.position.x = 2
         this.model.group.position.y = 3.57

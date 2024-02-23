@@ -31,6 +31,7 @@ export default [
             { name: 'tree', source: '/assets/tree.glb', type: 'model'},
             { name: 'pc', source: '/assets/pc.glb', type: 'model'},
             { name: 'girl', source: '/assets/girl.glb', type: 'model'},
+            { name: 'gundamZero1', source: '/assets/gundam_zero1.glb', type: 'model'},
         ]
     }
 ]
