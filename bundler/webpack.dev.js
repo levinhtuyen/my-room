@@ -14,7 +14,7 @@ module.exports = merge(
         mode: 'development',
         devServer:
         {
-            host: '0.0.0.0',
+            host: 'https://levinhtuyen.github.io/my-room',
             port: portFinderSync.getPort(8080),
             contentBase: './dist',
             watchContentBase: true,
@@ -29,7 +29,7 @@ module.exports = merge(
                 const port = server.options.port
                 const https = server.options.https ? 's' : ''
                 const localIp = ip.v4.sync()
-                const domain1 = `https://levinhtuyen.github.io/my-room`
+                const domain1 = `http${https}://${localIp}:${port}`
                 const domain2 = `http${https}://localhost:${port}`
                 
                 console.log(`Project running at:\n  - ${infoColor(domain1)}\n  - ${infoColor(domain2)}`)
