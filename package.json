@@ -2,7 +2,8 @@
   "repository": "#",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "webpack --config ./webpack.config.js",
+    "build": "webpack serve --config ./bundler/webpack.prod.js",
+    "build:webpack": "webpack --config ./bundler/webpack.prod.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "serve": "webpack serve --config ./bundler/webpack.dev.js",
     "config": "webpack serve --config ./bundler/webpack.prod.js",
