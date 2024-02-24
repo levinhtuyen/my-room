@@ -7,7 +7,7 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
     output:
     {
-        filename: 'bundle.js',
+        filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, '../dist')
     },
     devtool: 'source-map',

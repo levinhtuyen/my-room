@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge')
-const commonConfiguration = require('./webpack.common.js')
+const commonConfiguration = require('./webpack.commondev.js')
 const ip = require('internal-ip')
 const portFinderSync = require('portfinder-sync')
 
