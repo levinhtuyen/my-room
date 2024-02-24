@@ -7,7 +7,8 @@
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "serve": "webpack serve --config ./bundler/webpack.dev.js",
     "config": "webpack serve --config ./bundler/webpack.prod.js",
-    "serve-dist": "http-server --port 4200 dist/"
+    "serve-dist": "http-server --port 4200 dist/",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
