@@ -29,15 +29,15 @@ export default class GundamZero1
             {
               _child.material = new THREE.ShaderMaterial({
                   transparent: false,
-                  depthWrite: false,
+                  depthWrite: true,
                   vertexShader,
                   fragmentShader,
                   
                   uniforms:
                   {
                       uTime: { value: 0 },
-                      uTimeFrequency: { value: 0.0004 },
-                      uUvFrequency: { value: new THREE.Vector2(4, 5) },
+                      uTimeFrequency: { value: 0.001 },
+                      uUvFrequency: { value: new THREE.Vector2( 4, 5) },
                       uColor: { value: new THREE.Color(this.model.color) }
                   },
                   opacity: 1,

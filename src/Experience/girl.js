@@ -35,7 +35,7 @@ export default class TopGirl
     update()
     {
         // this.model.group.rotation.z = Math.sin(this.time.elapsed * 0.0005) * 1
-        this.model.group.scale.set(0.01,0.01,0.01)
+        this.model.group.scale.set(0.25,0.25,0.25)
         this.model.group.position.z = -1.5
         this.model.group.position.x = -1
         this.model.group.position.y = 0
