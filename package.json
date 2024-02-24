@@ -3,7 +3,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "webpack --config ./bundler/webpack.prod.js",
-    "build:webpack": "webpack --config ./bundler/webpack.prod.js",
+    "prod": "webpack --config ./bundler/webpack.prod.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "serve": "webpack serve --config ./bundler/webpack.dev.js",
     "config": "webpack serve --config ./bundler/webpack.prod.js",
