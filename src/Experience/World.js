@@ -35,7 +35,7 @@ export default class World
                 this.setPc()
                 this.setTree()
                 this.setGundamZero1()
-                // this.setGirl()
+                this.setGirl()
                 this.setPunk()
                 this.setCard()
                 this.setElgatoLight()
