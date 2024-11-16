@@ -1,1 +1,4 @@
-# my-room 1111111111
+# my-room 
+# 3D Threejs
+
+![image](./bg.png)
